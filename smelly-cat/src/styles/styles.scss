@@ -1,3 +1,7 @@
+@use "variables" as *;
+@use "./material-variables";
+@use "./material-overrides";
+
 @font-face {
   font-display: swap;
   font-family: "Manrope";

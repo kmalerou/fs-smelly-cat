@@ -15,6 +15,7 @@
   &__content {
     display: flex;
     justify-content: space-between;
+    gap: 16px;
 
     > * {
       flex: 1 1 50%;

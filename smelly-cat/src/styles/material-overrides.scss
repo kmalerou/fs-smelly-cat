@@ -1,0 +1,22 @@
+@use "variables" as *;
+@use "@angular/material" as mat;
+
+:root {
+  @include mat.form-field-overrides(
+    (
+      outlined-input-text-placeholder-color: $gray,
+    )
+  );
+}
+
+html {
+  @include mat.theme(
+    (
+      typography: Manrope,
+    )
+  );
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: $white;
+}

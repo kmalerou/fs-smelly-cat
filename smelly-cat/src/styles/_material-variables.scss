@@ -1,0 +1,12 @@
+@use "variables" as *;
+
+:root {
+  --mdc-filled-button-container-color: #{$coral};
+  --mdc-filled-button-label-text-color: #{$white};
+  --mat-divider-color: #{$silver-gray};
+  --mat-divider-width: 2px;
+  --mdc-checkbox-selected-icon-color: #{$coral};
+  --mdc-checkbox-selected-focus-icon-color: #{$coral};
+  --mdc-checkbox-selected-hover-icon-color: #{$coral};
+  --mdc-checkbox-unselected-icon-color: #{$black};
+}

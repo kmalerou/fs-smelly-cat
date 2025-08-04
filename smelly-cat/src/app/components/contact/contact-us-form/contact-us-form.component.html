@@ -6,7 +6,7 @@
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="contact-form__fields">
       <div class="contact-form__inline-field">
-        <mat-label>Your Full Name</mat-label>
+        <mat-label class="contact-form__field-label">Your Full Name</mat-label>
         <mat-form-field appearance="outline">
           <input
             matInput
@@ -19,7 +19,7 @@
         </mat-form-field>
       </div>
       <div class="contact-form__inline-field">
-        <mat-label>Your Email</mat-label>
+        <mat-label class="contact-form__field-label">Your Email</mat-label>
         <mat-form-field appearance="outline">
           <input
             matInput
@@ -37,7 +37,7 @@
       <mat-divider></mat-divider>
       <div class="contact-form__fields-group">
         <div class="contact-form__stacked-field">
-          <mat-label>City</mat-label>
+          <mat-label class="contact-form__field-label">City</mat-label>
           <mat-form-field appearance="outline">
             <input
               matInput
@@ -50,7 +50,7 @@
           </mat-form-field>
         </div>
         <div class="contact-form__stacked-field">
-          <mat-label>Postal Code</mat-label>
+          <mat-label class="contact-form__field-label">Postal Code</mat-label>
           <mat-form-field appearance="outline">
             <input
               matInput
@@ -63,8 +63,8 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="contact-form__stacked-field">
-        <mat-label>Address</mat-label>
+      <div class="contact-form__stacked-field max-w-60">
+        <mat-label class="contact-form__field-label">Address</mat-label>
         <mat-form-field appearance="outline">
           <input
             matInput
@@ -77,21 +77,29 @@
         </mat-form-field>
       </div>
       <div class="contact-form__stacked-field">
-        <mat-label>Your Message</mat-label>
+        <mat-label class="contact-form__field-label">Your Message</mat-label>
         <mat-form-field appearance="outline">
           <textarea
             matInput
             placeholder="Type your message"
             formControlName="message"
+            rows="5"
           ></textarea>
         </mat-form-field>
       </div>
       <mat-checkbox required formControlName="hasAcceptedTermsAndConditions"
-        >I agree with the Terms & Conditions</mat-checkbox
-      >
+        ><span class="contact-form__checkbox-label"
+          >I agree with the Terms & Conditions</span
+        >
+      </mat-checkbox>
     </div>
-    <button type="submit" [disabled]="!contactForm.valid" matButton="elevated">
-      Send!
+    <button
+      class="contact-form__submit-button"
+      type="submit"
+      [disabled]="!contactForm.valid"
+      mat-flat-button
+    >
+      <span class="contact-form__submit-button-label">Send!</span>
     </button>
   </form>
 </div>
