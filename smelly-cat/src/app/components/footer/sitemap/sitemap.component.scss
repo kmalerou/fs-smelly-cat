@@ -1,0 +1,15 @@
+@use "variables" as *;
+
+.sitemap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 48px;
+
+  &__link {
+    font-size: 14px;
+    color: $white;
+    letter-spacing: -0.17px;
+    font-weight: bold;
+  }
+}

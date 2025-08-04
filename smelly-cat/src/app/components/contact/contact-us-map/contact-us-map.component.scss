@@ -1,0 +1,51 @@
+@use "variables" as *;
+
+:host {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contact-map {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+
+  &__google-map {
+    iframe {
+      border: $cerebral-gray 1px solid;
+      border-radius: 8px;
+      width: 476px;
+      height: 416px;
+    }
+  }
+
+  &__headquarters-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: right;
+    color: $black;
+  }
+}
+
+.headquarters-info {
+  &__title {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+
+  &__address,
+  &__contact-details {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.22px;
+  }
+
+  &__contact-details {
+    a {
+      text-decoration: none;
+      color: $black;
+    }
+  }
+}

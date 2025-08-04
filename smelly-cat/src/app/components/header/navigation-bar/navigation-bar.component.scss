@@ -1,0 +1,13 @@
+@use "variables" as *;
+
+.navigation-bar {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+
+  &__link {
+    font-weight: 700;
+    font-size: 14px;
+    color: $dark-gray;
+  }
+}

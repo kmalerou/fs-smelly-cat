@@ -1,0 +1,37 @@
+@use "variables" as *;
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  &__prompt {
+    font-size: 18px;
+    letter-spacing: -0.22px;
+    font-weight: 600;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__fields-group {
+    display: flex;
+  }
+
+  &__inline-field {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+
+    mat-label {
+      flex: 1;
+    }
+  }
+
+  &__stacked-field {
+    display: flex;
+    flex-direction: column;
+  }
+}

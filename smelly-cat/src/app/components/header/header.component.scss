@@ -1,0 +1,26 @@
+@use "variables" as *;
+
+$header-height: 48px;
+
+:host {
+  box-sizing: border-box;
+  background: $white;
+  width: 100%;
+  padding: 9px 120px;
+  height: $header-height;
+  border-bottom: $gray 1px solid;
+}
+
+.header {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+
+  &__content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

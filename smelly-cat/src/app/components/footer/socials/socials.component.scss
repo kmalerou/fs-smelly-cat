@@ -1,0 +1,13 @@
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__link {
+    padding: 24px;
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

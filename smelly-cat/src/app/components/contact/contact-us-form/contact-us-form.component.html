@@ -1,0 +1,97 @@
+<div class="contact-form">
+  <div class="contact-form__prompt">
+    We are all cat persons, so if you got any question, drop it below and we
+    will contact you back!
+  </div>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="contact-form__fields">
+      <div class="contact-form__inline-field">
+        <mat-label>Your Full Name</mat-label>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="Type your name"
+            formControlName="fullName"
+          />
+          @if (contactForm.get("fullName")?.hasError("required")) {
+            <mat-error> Full Name is required </mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="contact-form__inline-field">
+        <mat-label>Your Email</mat-label>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="Type your email"
+            formControlName="email"
+          />
+          @if (contactForm.get("email")?.hasError("required")) {
+            <mat-error> Email is required </mat-error>
+          }
+          @if (contactForm.get("email")?.hasError("email")) {
+            <mat-error> Please enter a valid email </mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="contact-form__fields-group">
+        <div class="contact-form__stacked-field">
+          <mat-label>City</mat-label>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              placeholder="ex. Thessaloniki"
+              formControlName="city"
+            />
+            @if (contactForm.get("city")?.hasError("required")) {
+              <mat-error> City is required </mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="contact-form__stacked-field">
+          <mat-label>Postal Code</mat-label>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              placeholder="ex. 54658"
+              formControlName="postalCode"
+            />
+            @if (contactForm.get("postalCode")?.hasError("required")) {
+              <mat-error> Postal code is required </mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="contact-form__stacked-field">
+        <mat-label>Address</mat-label>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="ex. Thessaloniki"
+            formControlName="address"
+          />
+          @if (contactForm.get("address")?.hasError("required")) {
+            <mat-error> Address is required </mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="contact-form__stacked-field">
+        <mat-label>Your Message</mat-label>
+        <mat-form-field appearance="outline">
+          <textarea
+            matInput
+            placeholder="Type your message"
+            formControlName="message"
+          ></textarea>
+        </mat-form-field>
+      </div>
+      <mat-checkbox required formControlName="hasAcceptedTermsAndConditions"
+        >I agree with the Terms & Conditions</mat-checkbox
+      >
+    </div>
+    <button type="submit" [disabled]="!contactForm.valid" matButton="elevated">
+      Send!
+    </button>
+  </form>
+</div>
