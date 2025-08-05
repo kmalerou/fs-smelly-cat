@@ -3,7 +3,11 @@
     We are all cat persons, so if you got any question, drop it below and we
     will contact you back!
   </div>
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <form
+    [formGroup]="contactForm"
+    (ngSubmit)="onSubmit()"
+    #formDirective="ngForm"
+  >
     <div class="contact-form__fields">
       <div class="contact-form__inline-field">
         <mat-label class="contact-form__field-label">Your Full Name</mat-label>
