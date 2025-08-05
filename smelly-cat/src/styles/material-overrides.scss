@@ -7,6 +7,11 @@
       outlined-input-text-placeholder-color: $gray,
     )
   );
+  @include mat.progress-spinner-overrides(
+    (
+      active-indicator-color: $coral,
+    )
+  );
 }
 
 html {

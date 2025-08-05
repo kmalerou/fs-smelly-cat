@@ -99,7 +99,11 @@
       [disabled]="!contactForm.valid"
       mat-flat-button
     >
-      <span class="contact-form__submit-button-label">Send!</span>
+      @if (isSubmitting) {
+        <mat-spinner diameter="20"></mat-spinner>
+      } @else {
+        <span class="contact-form__submit-button-label">Send!</span>
+      }
     </button>
   </form>
 </div>
