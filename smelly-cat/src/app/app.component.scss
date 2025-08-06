@@ -7,9 +7,21 @@
   flex-direction: column;
 }
 
-.content {
+.sidenav__content-container {
   flex: 1;
   overflow-y: auto;
   background: $ultra-light-gray;
   padding: 80px 120px;
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  .sidenav__content-container {
+    padding: 60px;
+  }
+}
+
+@media screen and (max-width: $breakpoint-xs) {
+  .sidenav__content-container {
+    padding: 20px 20px 100px 20px;
+  }
 }

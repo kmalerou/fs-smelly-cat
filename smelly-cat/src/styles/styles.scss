@@ -67,3 +67,19 @@ body {
   margin: 0;
   font-family: "Manrope", sans-serif;
 }
+
+.hidden {
+  display: none !important;
+}
+
+@each $name, $size in $breakpoints {
+  @media (max-width: $size) {
+    .hide-on-#{$name} {
+      display: none !important;
+    }
+
+    .show-on-#{$name} {
+      display: block !important;
+    }
+  }
+}

@@ -1,6 +1,8 @@
 @use "variables" as *;
 
 $footer-height: 174px;
+$footer-height-mobile: 250px;
+$footer-height-xs-mobile: 300px;
 
 :host {
   box-sizing: border-box;
@@ -28,5 +30,48 @@ $footer-height: 174px;
     font-size: 12px;
     color: $light-gray;
     letter-spacing: -0.15px;
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  :host {
+    padding: 16px 50px;
+    height: $footer-height-mobile;
+  }
+
+  .footer {
+    gap: 12px;
+
+    &__content {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    &__copyright {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-xs) {
+  :host {
+    height: $footer-height-xs-mobile;
+    padding: 8px 0;
+  }
+
+  .footer {
+    &__content {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &__logo {
+      max-width: 120px;
+      height: auto;
+    }
+
+    &__copyright {
+      font-size: 12px;
+    }
   }
 }

@@ -67,7 +67,7 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="contact-form__stacked-field max-w-60">
+      <div class="contact-form__stacked-field contact-form__address-field">
         <mat-label class="contact-form__field-label">Address</mat-label>
         <mat-form-field appearance="outline">
           <input
@@ -97,17 +97,19 @@
         >
       </mat-checkbox>
     </div>
-    <button
-      class="contact-form__submit-button"
-      type="submit"
-      [disabled]="!contactForm.valid"
-      mat-flat-button
-    >
-      @if (isSubmitting) {
-        <mat-spinner diameter="20"></mat-spinner>
-      } @else {
-        <span class="contact-form__submit-button-label">Send!</span>
-      }
-    </button>
+    <div class="contact-form__submit-button-wrapper">
+      <button
+        class="contact-form__submit-button"
+        type="submit"
+        [disabled]="!contactForm.valid"
+        mat-flat-button
+      >
+        @if (isSubmitting) {
+          <mat-spinner diameter="20"></mat-spinner>
+        } @else {
+          <span class="contact-form__submit-button-label">Send!</span>
+        }
+      </button>
+    </div>
   </form>
 </div>

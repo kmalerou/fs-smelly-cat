@@ -22,3 +22,11 @@
     }
   }
 }
+
+@media screen and (max-width: $breakpoint-md) {
+  .contact {
+    &__content {
+      flex-direction: column;
+    }
+  }
+}

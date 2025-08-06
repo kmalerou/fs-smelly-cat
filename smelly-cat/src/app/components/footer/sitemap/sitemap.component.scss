@@ -13,3 +13,27 @@
     font-weight: bold;
   }
 }
+
+@media screen and (max-width: $breakpoint-md) {
+  :host {
+    width: 100%;
+  }
+  .sitemap {
+    justify-content: space-around;
+    gap: 24px;
+
+    &__link {
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-xs) {
+  .sitemap {
+    flex-direction: column;
+
+    &__link {
+      font-size: 13px;
+    }
+  }
+}

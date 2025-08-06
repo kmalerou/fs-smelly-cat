@@ -11,3 +11,10 @@
     color: $dark-gray;
   }
 }
+
+@media screen and (max-width: $breakpoint-md) {
+  .navigation-bar {
+    flex-direction: column;
+    padding: 16px;
+  }
+}

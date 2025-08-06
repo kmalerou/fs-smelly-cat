@@ -1,5 +1,14 @@
-<app-header></app-header>
-<div class="content">
-  <router-outlet />
-</div>
+<app-header (toggleBurgerMenu)="handleOpenBurgerMenu()"></app-header>
+
+<mat-sidenav-container class="sidenav__container">
+  <mat-sidenav #drawer>
+    <app-navigation-bar></app-navigation-bar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="sidenav__content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
 <app-footer></app-footer>

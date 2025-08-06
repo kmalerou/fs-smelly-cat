@@ -8,3 +8,15 @@ $silver-gray: #d8d8d8;
 $cerebral-gray: #cccccc;
 $gray: #a0a9ba;
 $dark-gray: #555555;
+
+$breakpoint-xs: 600px;
+$breakpoint-sm: 960px;
+$breakpoint-md: 1280px;
+$breakpoint-lg: 1920px;
+
+$breakpoints: (
+  "xs": $breakpoint-xs,
+  "sm": $breakpoint-sm,
+  "md": $breakpoint-md,
+  "lg": $breakpoint-lg,
+);

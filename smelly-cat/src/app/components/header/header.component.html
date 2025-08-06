@@ -1,6 +1,14 @@
 <header class="header">
   <div class="header__content">
     <img src="images/logos/logo-black.png" alt="SmellyCat logo" />
-    <app-navigation-bar></app-navigation-bar>
+
+    <app-navigation-bar class="hide-on-md"></app-navigation-bar>
+    <button
+      class="hidden show-on-md"
+      mat-icon-button
+      (click)="openBurgerMenu()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
 </header>

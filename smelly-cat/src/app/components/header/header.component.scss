@@ -1,6 +1,7 @@
 @use "variables" as *;
 
 $header-height: 48px;
+$header-height-mobile: 65px;
 
 :host {
   box-sizing: border-box;
@@ -22,5 +23,12 @@ $header-height: 48px;
     width: 100%;
     align-items: center;
     justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  :host {
+    height: $header-height-mobile;
+    padding: 9px 12px;
   }
 }
