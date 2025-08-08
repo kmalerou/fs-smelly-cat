@@ -9,16 +9,23 @@ import {
   providedIn: 'root',
 })
 export class SnackbarService {
-  private _horizontalPosition: MatSnackBarHorizontalPosition = 'right';
-  private _verticalPosition: MatSnackBarVerticalPosition = 'top';
-  private _durationMS = 3000;
   private _snackBar = inject(MatSnackBar);
 
   public openDefaultSnackbar(message: string): void {
-    this._snackBar.open(message, 'Close', {
-      horizontalPosition: this._horizontalPosition,
-      verticalPosition: this._verticalPosition,
-      duration: this._durationMS,
+    this.openSnackbar(message);
+  }
+
+  private openSnackbar(
+    message: string,
+    action: string = 'Close',
+    duration: number = 3000,
+    horizontalPosition: MatSnackBarHorizontalPosition = 'right',
+    verticalPosition: MatSnackBarVerticalPosition = 'top',
+  ): void {
+    this._snackBar.open(message, action, {
+      duration,
+      horizontalPosition,
+      verticalPosition,
     });
   }
 }

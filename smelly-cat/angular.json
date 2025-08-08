@@ -95,6 +95,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "include": ["src/**/*.spec.ts", "src/**/*.d.ts"],
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
@@ -108,6 +109,9 @@
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
             "scripts": []
           }
         }

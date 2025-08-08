@@ -1,28 +1,25 @@
 import { inject, Injectable } from '@angular/core';
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
   NotificationEmailParams,
   ReplyEmailParams,
   SendEmailRequest,
 } from '../models';
 import { ApiService } from '.';
-
-const EMAILJS_SERVICE_ID = 'service_y34kl7b';
-const EMAILJS_NOTIFICATION_TEMPLATE_ID = 'template_b4ywnxk';
-const EMAILJS_REPLY_TEMPLATE_ID = 'template_0k65lki';
-const EMAILJS_USER_ID = 'aRW_udETEp5bKaomN';
+import { EMAIL_CONFIG_TOKEN } from '../configs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmailService {
   private apiService = inject(ApiService);
+  private config = inject(EMAIL_CONFIG_TOKEN);
 
   public sendNotificationEmail(
     params: NotificationEmailParams,
   ): Observable<string> {
     const notificationBody = this.createSendEmailRequest(
-      EMAILJS_NOTIFICATION_TEMPLATE_ID,
+      this.config.templates.notification,
       params,
     );
     return this.sendEmail(notificationBody);
@@ -30,7 +27,7 @@ export class EmailService {
 
   public sendReplyEmail(params: ReplyEmailParams): Observable<string> {
     const replyBody = this.createSendEmailRequest(
-      EMAILJS_REPLY_TEMPLATE_ID,
+      this.config.templates.reply,
       params,
     );
     return this.sendEmail(replyBody);
@@ -41,9 +38,9 @@ export class EmailService {
     params: ReplyEmailParams | NotificationEmailParams,
   ): SendEmailRequest {
     return {
-      service_id: EMAILJS_SERVICE_ID,
+      service_id: this.config.service_id,
       template_id: templateId,
-      user_id: EMAILJS_USER_ID,
+      user_id: this.config.user_id,
       template_params: params,
     };
   }

@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PhoneFormatPipe implements PipeTransform {
   transform(value: string, ...args: unknown[]): string {
-    if (!value) return value;
+    if (!value) return '';
     const phone = value.replace(/\s+/g, '');
     const countryCode = phone.slice(0, 3);
     const cityCode = phone.slice(3, 6);
