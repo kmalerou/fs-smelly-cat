@@ -1,29 +1,36 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { By } from '@angular/platform-browser';
+import { HeaderComponent } from './components/header/header.component';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, MatSidenavModule],
     }).compileComponents();
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  // it(`should have the 'smelly-cat' title`, () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   const app = fixture.componentInstance;
-  //   expect(app.title).toEqual('smelly-cat');
-  // });
+  it('should toggle sidenav when HeaderComponent emits toggleBurgerMenu', () => {
+    const sidenavDE = fixture.debugElement.query(By.directive(MatSidenav));
+    const sidenav = sidenavDE.componentInstance as MatSidenav;
+    spyOn(sidenav, 'toggle');
 
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement as HTMLElement;
-  //   expect(compiled.querySelector('h1')?.textContent).toContain('Hello, smelly-cat');
-  // });
+    const headerDE = fixture.debugElement.query(By.directive(HeaderComponent));
+    const headerComponent = headerDE.componentInstance as HeaderComponent;
+    headerComponent.toggleBurgerMenu.emit();
+
+    fixture.detectChanges();
+
+    expect(sidenav.toggle).toHaveBeenCalled();
+  });
 });

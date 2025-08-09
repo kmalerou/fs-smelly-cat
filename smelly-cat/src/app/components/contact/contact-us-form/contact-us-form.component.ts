@@ -104,6 +104,7 @@ export class ContactUsFormComponent {
     return this._emailService.sendReplyEmail(params).pipe(
       take(1),
       catchError((err) => {
+        this.isSubmitting = false;
         this.contactForm.enable();
         console.warn('Auto reply email failed:', err);
         return EMPTY;
@@ -133,6 +134,7 @@ export class ContactUsFormComponent {
   }
 
   private handleSendNotificationEmailFailure(): void {
+    this.isSubmitting = false;
     this.contactForm.enable();
     this._snackbarService.openDefaultSnackbar(FAILED_EMAIL_SENT_MSG);
   }
