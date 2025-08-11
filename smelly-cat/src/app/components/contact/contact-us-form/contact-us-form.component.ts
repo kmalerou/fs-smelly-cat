@@ -15,7 +15,14 @@ import {
 } from '@angular/forms';
 import { hasAcceptedValidator } from '../../../validators';
 import { EmailService, SnackbarService } from '../../../services';
-import { catchError, EMPTY, Observable, switchMap, take } from 'rxjs';
+import {
+  catchError,
+  defaultIfEmpty,
+  EMPTY,
+  Observable,
+  switchMap,
+  take,
+} from 'rxjs';
 import { NotificationEmailParams, ReplyEmailParams } from '../../../models';
 
 const SUCCESSFUL_EMAIL_SENT_MSG = 'Message successfully sent!';
@@ -104,8 +111,6 @@ export class ContactUsFormComponent {
     return this._emailService.sendReplyEmail(params).pipe(
       take(1),
       catchError((err) => {
-        this.isSubmitting = false;
-        this.contactForm.enable();
         console.warn('Auto reply email failed:', err);
         return EMPTY;
       }),
@@ -117,7 +122,7 @@ export class ContactUsFormComponent {
     return {
       name: contactFormValue.fullName!,
       email: contactFormValue.email!,
-      dateTimeSent: new Date().toLocaleString(),
+      dateTimeSent: new Date().toISOString(),
       address: contactFormValue.address!,
       zip: contactFormValue.postalCode!,
       city: contactFormValue.city!,
@@ -150,7 +155,9 @@ export class ContactUsFormComponent {
           this.handleSendNotificationEmailFailure();
           return EMPTY;
         }),
-        switchMap(() => this.sendAutoReplyEmail()),
+        switchMap(() =>
+          this.sendAutoReplyEmail().pipe(defaultIfEmpty('skipped')),
+        ),
       )
       .subscribe(() => {
         this.handleSendNotificationEmailSuccess();

@@ -322,5 +322,49 @@ describe('ContactUsFormComponent', () => {
       );
       expect(component.contactForm.enabled).toBeTrue();
     }));
+
+    it('should still show success snackbar when send auto-reply fails after notification success', fakeAsync(() => {
+      spyOn(console, 'warn').and.stub();
+      const response = 'OK';
+      emailServiceSpy.sendNotificationEmail.and.returnValue(of(response));
+      const error = new Error('API failed');
+      emailServiceSpy.sendReplyEmail.and.returnValue(throwError(() => error));
+
+      snackBarSpy.openDefaultSnackbar;
+
+      component.contactForm.setValue(validFormFill);
+      spyOn(component, 'onSubmit').and.callThrough();
+      fixture.detectChanges();
+
+      const button = fixture.nativeElement.querySelector(
+        'button[type="submit"]',
+      )!;
+      button.click();
+      tick();
+      fixture.detectChanges();
+
+      expect(emailServiceSpy.sendNotificationEmail).toHaveBeenCalledWith(
+        jasmine.objectContaining({
+          name: validFormFill.fullName,
+          email: validFormFill.email,
+          address: validFormFill.address,
+          zip: validFormFill.postalCode,
+          city: validFormFill.city,
+          message: validFormFill.message,
+          dateTimeSent: jasmine.any(String),
+        }),
+      );
+      expect(emailServiceSpy.sendReplyEmail).toHaveBeenCalledWith(
+        jasmine.objectContaining({
+          name: validFormFill.fullName,
+          email: validFormFill.email,
+        }),
+      );
+      expect(snackBarSpy.openDefaultSnackbar).toHaveBeenCalledWith(
+        'Message successfully sent!',
+      );
+      expect(component.isSubmitting).toBeFalse();
+      expect(component.contactForm.enabled).toBeTrue();
+    }));
   });
 });
