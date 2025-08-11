@@ -103,6 +103,21 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/images",
+                "output": "images"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/icons",
+                "output": "icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/fonts",
+                "output": "fonts"
               }
             ],
             "styles": [
