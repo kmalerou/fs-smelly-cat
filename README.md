@@ -21,14 +21,13 @@ The site is **fully responsive**, adapting its layout for desktop, tablet, and m
 
 When a user submits the contact form:
 
-1. **Confirmation Email to the Visitor**  
+1. **Auto-Reply Email to the Submitter**  
    - Confirms that the message has been received.  
-   - Example: *"We have received your message and will get back to you shortly."*
 
 ![Confirmation Email Screenshot](./screenshots/auto-reply-email.png "Auto-Reply Email Screenshot")
 
 
-2. **Notification Email to the Responsible Person**  
+2. **Notification Email to the Responsible Person/Admin**  
    - Alerts that a new form submission has been received.  
    - Includes the details from the form (name, email, message, etc.).
 
