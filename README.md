@@ -9,7 +9,7 @@ The site is **fully responsive**, adapting its layout for desktop, tablet, and m
 ## Contact Page
 
 ### Features
-- **Contact Form** allowing visitors to submit inquiries or feedback.
+- **Contact Form** allowing visitors to submit messages.
 - **Embedded Google Map** showing the company’s location.
 - **Email Functionality** powered by [EmailJS](https://www.emailjs.com/).
 
@@ -17,7 +17,7 @@ The site is **fully responsive**, adapting its layout for desktop, tablet, and m
 
 ### Form Submission Behavior
 
-![Contact Form Screenshot](./assets/contact-form.png "Contact Form Screenshot")
+![Contact Form Screenshot](./screenshots/contact-page.png "Contact Page Screenshot")
 
 When a user submits the contact form:
 
@@ -25,14 +25,14 @@ When a user submits the contact form:
    - Confirms that the message has been received.  
    - Example: *"We have received your message and will get back to you shortly."*
 
-![Confirmation Email Screenshot](./assets/auto-reply-email.png "Auto-Reply Email Screenshot")
+![Confirmation Email Screenshot](./screenshots/auto-reply-email.png "Auto-Reply Email Screenshot")
 
 
 2. **Notification Email to the Responsible Person**  
    - Alerts that a new form submission has been received.  
    - Includes the details from the form (name, email, message, etc.).
 
-![Confirmation Email Screenshot](./assets/notification-email.png "Notification Email Screenshot")
+![Confirmation Email Screenshot](./screenshots/notification-email.png "Notification Email Screenshot")
 
 
 ---
